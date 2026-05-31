@@ -1,0 +1,313 @@
+:root {
+  --bg: #f4f7fb;
+  --surface: #ffffff;
+  --ink: #111827;
+  --muted: #667085;
+  --line: #d8dee8;
+  --blue: #0b74ff;
+  --green: #0f9f6e;
+  --amber: #b85c00;
+  --red: #c03333;
+  --shadow: 0 24px 70px rgba(16, 24, 40, 0.12);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: "Segoe UI", Tahoma, Arial, sans-serif;
+}
+
+button,
+input,
+textarea {
+  font: inherit;
+}
+
+.app-shell {
+  min-height: 100vh;
+}
+
+.view {
+  display: none;
+  min-height: 100vh;
+  padding: 28px;
+}
+
+.view.active {
+  display: block;
+}
+
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  max-width: 1180px;
+  margin: 0 auto 24px;
+}
+
+.eyebrow {
+  margin: 0 0 8px;
+  color: var(--blue);
+  font-weight: 800;
+  letter-spacing: 0;
+}
+
+h1,
+h2,
+h3,
+p {
+  margin-top: 0;
+}
+
+h1 {
+  max-width: 780px;
+  margin-bottom: 0;
+  font-size: 34px;
+  line-height: 1.35;
+}
+
+h2 {
+  margin-bottom: 0;
+  font-size: 22px;
+}
+
+.primary-btn,
+.secondary-btn,
+.ghost-btn,
+.back-btn {
+  border: 0;
+  cursor: pointer;
+  border-radius: 8px;
+  min-height: 44px;
+  padding: 0 18px;
+  font-weight: 800;
+}
+
+.primary-btn {
+  background: var(--blue);
+  color: white;
+}
+
+.secondary-btn {
+  width: 100%;
+  background: #e8f1ff;
+  color: #084a9c;
+}
+
+.ghost-btn,
+.back-btn {
+  background: #f2f4f7;
+  color: var(--ink);
+}
+
+.metrics {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 14px;
+  max-width: 1180px;
+  margin: 0 auto 18px;
+}
+
+.metrics article,
+.panel,
+.feedback-card {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  box-shadow: var(--shadow);
+}
+
+.metrics article {
+  padding: 18px;
+}
+
+.metrics span {
+  display: block;
+  margin-bottom: 8px;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.metrics strong {
+  font-size: 34px;
+}
+
+.workspace {
+  display: grid;
+  grid-template-columns: 360px minmax(0, 1fr);
+  gap: 18px;
+  max-width: 1180px;
+  margin: 0 auto;
+}
+
+.panel {
+  padding: 18px;
+  overflow: hidden;
+}
+
+.panel-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 18px;
+}
+
+label {
+  display: grid;
+  gap: 7px;
+  margin-bottom: 14px;
+  color: var(--muted);
+  font-weight: 700;
+}
+
+input,
+textarea {
+  width: 100%;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: #fbfcfe;
+  color: var(--ink);
+  padding: 12px 13px;
+  resize: vertical;
+}
+
+#invite-message {
+  margin-top: 12px;
+}
+
+.table-wrap {
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 680px;
+}
+
+th,
+td {
+  border-bottom: 1px solid var(--line);
+  padding: 13px 10px;
+  text-align: right;
+  vertical-align: top;
+}
+
+th {
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.status {
+  display: inline-block;
+  border-radius: 999px;
+  padding: 5px 10px;
+  color: white;
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.status.happy {
+  background: var(--green);
+}
+
+.status.private {
+  background: var(--amber);
+}
+
+.phone-preview {
+  display: grid;
+  min-height: calc(100vh - 56px);
+  place-items: center;
+}
+
+.feedback-card {
+  width: min(100%, 520px);
+  padding: 24px;
+}
+
+.feedback-card h2 {
+  margin-bottom: 10px;
+  font-size: 30px;
+}
+
+.muted {
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+.rating-row {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 10px;
+  margin: 22px 0;
+}
+
+.rating-row button {
+  aspect-ratio: 1;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: #f8fafc;
+  cursor: pointer;
+  color: var(--ink);
+  font-size: 24px;
+  font-weight: 900;
+}
+
+.rating-row button.selected {
+  border-color: var(--blue);
+  background: #e8f1ff;
+  color: var(--blue);
+}
+
+.flow-card {
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 16px;
+  background: #fbfcfe;
+}
+
+.hidden {
+  display: none;
+}
+
+.link-btn {
+  display: grid;
+  place-items: center;
+  text-decoration: none;
+  margin-top: 12px;
+}
+
+.submit-state {
+  min-height: 24px;
+  margin: 14px 0 0;
+  color: var(--green);
+  font-weight: 800;
+}
+
+@media (max-width: 860px) {
+  .view {
+    padding: 18px;
+  }
+
+  .topbar,
+  .workspace {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
+  .metrics {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  h1 {
+    font-size: 27px;
+  }
+}
