@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AI Review Booster</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <section id="dashboard-view" class="view active">
+        <header class="topbar">
+          <div>
+            <p class="eyebrow">AI Review Booster</p>
+            <h1>نظام بسيط يجمع تقييمات Google ويمنع التقييمات السلبية قبل ظهورها</h1>
+          </div>
+          <button id="open-feedback-demo" class="primary-btn">معاينة صفحة العميل</button>
+        </header>
+
+        <section class="metrics" aria-label="مؤشرات الأداء">
+          <article>
+            <span>إجمالي الردود</span>
+            <strong id="metric-total">0</strong>
+          </article>
+          <article>
+            <span>عملاء راضين</span>
+            <strong id="metric-happy">0</strong>
+          </article>
+          <article>
+            <span>شكاوى خاصة</span>
+            <strong id="metric-private">0</strong>
+          </article>
+          <article>
+            <span>متوسط الرضا</span>
+            <strong id="metric-average">0.0</strong>
+          </article>
+        </section>
+
+        <section class="workspace">
+          <aside class="panel settings-panel">
+            <div class="panel-header">
+              <h2>إعداد النشاط</h2>
+              <button id="reset-demo" class="ghost-btn">تصفير</button>
+            </div>
+            <label>
+              اسم النشاط
+              <input id="business-name" type="text" value="عيادة النخبة" />
+            </label>
+            <label>
+              رابط تقييم Google
+              <input id="google-link" type="url" value="https://www.google.com/search?q=google+review" />
+            </label>
+            <label>
+              رقم واتساب الاستقبال
+              <input id="whatsapp-number" type="tel" value="966500000000" />
+            </label>
+            <label>
+              اسم العميل للتجربة
+              <input id="customer-name" type="text" value="محمد" />
+            </label>
+            <button id="copy-invite" class="secondary-btn">نسخ رسالة الإرسال للعميل</button>
+            <textarea id="invite-message" readonly rows="7"></textarea>
+          </aside>
+
+          <section class="panel">
+            <div class="panel-header">
+              <h2>آخر الردود</h2>
+              <button id="export-csv" class="ghost-btn">تصدير CSV</button>
+            </div>
+            <div class="table-wrap">
+              <table>
+                <thead>
+                  <tr>
+                    <th>العميل</th>
+                    <th>التقييم</th>
+                    <th>الحالة</th>
+                    <th>الملاحظة</th>
+                    <th>الوقت</th>
+                  </tr>
+                </thead>
+                <tbody id="responses-table"></tbody>
+              </table>
+            </div>
+          </section>
+        </section>
+      </section>
+
+      <section id="feedback-view" class="view">
+        <div class="phone-preview">
+          <div class="feedback-card">
+            <button id="back-dashboard" class="back-btn">العودة للوحة</button>
+            <p class="eyebrow" id="feedback-business">عيادة النخبة</p>
+            <h2>كيف كانت تجربتك معنا؟</h2>
+            <p class="muted">اختيارك يساعدنا نطور الخدمة ونتواصل معك إذا فيه أي ملاحظة.</p>
+            <div class="rating-row" id="rating-row" aria-label="اختيار التقييم">
+              <button data-rating="1">1</button>
+              <button data-rating="2">2</button>
+              <button data-rating="3">3</button>
+              <button data-rating="4">4</button>
+              <button data-rating="5">5</button>
+            </div>
+
+            <div id="happy-flow" class="flow-card hidden">
+              <h3>سعداء أن التجربة أعجبتك</h3>
+              <p>اضغط الزر واكتب تقييمك في Google. جهزنا لك صياغة قصيرة تقدر تستخدمها.</p>
+              <textarea id="review-suggestion" readonly rows="3"></textarea>
+              <a id="google-review-btn" class="primary-btn link-btn" href="#" target="_blank" rel="noreferrer">فتح صفحة تقييم Google</a>
+            </div>
+
+            <div id="private-flow" class="flow-card hidden">
+              <h3>نعتذر عن التجربة</h3>
+              <p>اكتب ملاحظتك هنا، وتوصل لصاحب النشاط بشكل خاص قبل ما تتحول لمشكلة علنية.</p>
+              <textarea id="private-note" rows="4" placeholder="اكتب ملاحظتك هنا"></textarea>
+              <button id="send-private" class="primary-btn">إرسال الملاحظة الخاصة</button>
+            </div>
+
+            <p id="submit-state" class="submit-state"></p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <script src="./script.js"></script>
+  </body>
+</html>
